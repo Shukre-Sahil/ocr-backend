@@ -2,12 +2,13 @@ from flask import Flask, request, jsonify
 import pytesseract
 from PIL import Image
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)  # To allow frontend to connect
 
 # Update for your system
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = os.getenv("TESSERACT_CMD", "tesseract")
 
 @app.route('/ocr', methods=['POST'])
 def ocr():

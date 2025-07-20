@@ -4,7 +4,7 @@ FROM python:3.9-slim
 # Install system dependencies including Hindi and Marathi OCR data
 RUN apt-get update && \
     apt-get install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-hin tesseract-ocr-mar && \
-    apt-get clean
+    rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app

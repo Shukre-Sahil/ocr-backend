@@ -76,7 +76,7 @@ function App() {
     setLoading(true); //start loader (updated)
     
     try {
-      const response = await axios.post('https://ocr-backend-gr8w.onrender.com/ocr', formData);
+      const response = await axios.post('http://127.0.0.1:5000/ocr', formData);
       setExtractedText(response.data.extracted_text);
     } catch (error) {
       console.error(error);

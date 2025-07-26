@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ["https://docuease-ss.netlify.app", "http://localhost:3000"]}}) # to allow frontend and local host to connect.
 
 # Update for your system
-pytesseract.pytesseract.tesseract_cmd = os.getenv("TESSERACT_CMD", "tesseract")
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 @app.route('/ocr', methods=['POST'])
 def ocr():
@@ -20,7 +20,7 @@ def ocr():
 
     try:
         img = Image.open(file.stream)
-        text = pytesseract.image_to_string(img, lang=lang)
+        text = pytesseract.image_to_string(img, lang=lang, timeout=10)
         return jsonify({'extracted_text': text})
     except Exception as e:
         return jsonify({'error': str(e)})

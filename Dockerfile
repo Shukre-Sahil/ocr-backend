@@ -1,6 +1,7 @@
+# Use official Python slim image
 FROM python:3.9-slim
 
-# Install system dependencies
+# Install system dependencies including Hindi and Marathi OCR data
 RUN apt-get update && \
     apt-get install -y tesseract-ocr tesseract-ocr-eng tesseract-ocr-hin tesseract-ocr-mar && \
     rm -rf /var/lib/apt/lists/*
@@ -8,21 +9,18 @@ RUN apt-get update && \
 # Set working directory
 WORKDIR /app
 
-# Upgrade pip first (important!)
-RUN pip install --upgrade pip
-
-# Install Python dependencies
+# Copy requirements.txt first and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# Copy all remaining files
 COPY . .
 
-# Set environment variable
-ENV TESSERACT_CMD=tesseract
-
-# Expose Flask/Gunicorn port
+# Expose port (Render uses 10000 by default, but Flask defaults to 5000; Render maps automatically)
 EXPOSE 5000
 
-# Command to run the app
+# Set environment variable for Tesseract path
+ENV TESSERACT_CMD=tesseract
+
+# Command to run the app with gunicorn for production
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]

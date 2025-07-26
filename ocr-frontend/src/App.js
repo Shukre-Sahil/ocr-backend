@@ -76,7 +76,9 @@ function App() {
     setLoading(true); //start loader (updated)
     
     try {
-      const response = await axios.post('https://ocr-backend-gr8w.onrender.com/ocr', formData);
+      const response = await axios.post('https://ocr-backend-gr8w.onrender.com/ocr', formData,
+        {timeout:90000}
+      );
       setExtractedText(response.data.extracted_text);
     } catch (error) {
       console.error(error);

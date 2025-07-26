@@ -23,4 +23,4 @@ EXPOSE 5000
 ENV TESSERACT_CMD=tesseract
 
 # Command to run the app with gunicorn for production
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "120", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--timeout", "90", "app:app"]

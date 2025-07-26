@@ -1,13 +1,13 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
-from PIL import Image
 import pytesseract
+from PIL import Image
+from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["https://docuease-ss.netlify.app", "http://localhost:3000"]}})
+CORS(app, resources={r"/*": {"origins": ["https://docuease-ss.netlify.app", "http://localhost:3000"]}}) # to allow frontend and local host to connect.
 
-# Optional: Tesseract path
+# Update for your system
 pytesseract.pytesseract.tesseract_cmd = os.getenv("TESSERACT_CMD", "tesseract")
 
 @app.route('/ocr', methods=['POST'])
@@ -16,7 +16,7 @@ def ocr():
         return jsonify({'error': 'No file uploaded'})
 
     file = request.files['file']
-    lang = request.form.get('lang', 'eng')  # 'eng' by default
+    lang = request.form.get('lang', 'eng')  # Default to English if not specified
 
     try:
         img = Image.open(file.stream)

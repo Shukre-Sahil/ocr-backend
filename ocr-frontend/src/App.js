@@ -76,7 +76,7 @@ function App() {
     setLoading(true); //start loader (updated)
     
     try {
-      const response = await axios.post('http://127.0.0.1:5000/ocr', formData);
+      const response = await axios.post('https://ocr-backend-gr8w.onrender.com/ocr', formData);
       setExtractedText(response.data.extracted_text);
     } catch (error) {
       console.error(error);
@@ -104,8 +104,8 @@ function App() {
   const appStyles = {
     fontFamily: '"Michroma", sans-serif',
     background: darkMode
-      ? `linear-gradient(135deg, ${colors.background}, #1E293B)`
-      : `linear-gradient(135deg, ${colors.background}, #FFFFFF)`,
+      ? linear-gradient(135deg, ${colors.background}, #1E293B)
+      : linear-gradient(135deg, ${colors.background}, #FFFFFF),
     color: colors.text,
     minHeight: '100vh',
     display: 'flex',
@@ -122,7 +122,7 @@ function App() {
     fontSize: '2em',
     margin: '10px 0',
     textAlign: 'center',
-    textShadow: `0 0 10px ${colors.neonPop}`
+    textShadow: 0 0 10px ${colors.neonPop}
   };
 
   const taglineStyle = {
@@ -141,7 +141,7 @@ function App() {
     backgroundColor: darkMode ? 'rgba(30,41,59,0.85)' : '#E5E7EB',
     padding: '20px',
     borderRadius: '10px',
-    boxShadow: `0 0 12px ${colors.neonPop}`,
+    boxShadow: 0 0 12px ${colors.neonPop},
     width: '90%',
     maxWidth: '500px',
     transition: 'background-color 0.5s ease'
@@ -156,7 +156,7 @@ function App() {
     cursor: 'pointer',
     margin: '10px',
     fontFamily: '"Michroma", sans-serif',
-    boxShadow: `0 0 10px ${colors.neonPop}`,
+    boxShadow: 0 0 10px ${colors.neonPop},
     transition: 'all 0.3s ease'
   };
 
@@ -281,7 +281,7 @@ function App() {
               borderRadius: '5px',
               cursor: 'pointer',
               fontFamily: '"Michroma", sans-serif',
-              boxShadow: `0 0 5px rgba(0,0,0,0.3)`,
+              boxShadow: 0 0 5px rgba(0,0,0,0.3),
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
@@ -304,7 +304,7 @@ function App() {
               borderRadius: '5px',
               cursor: 'pointer',
               fontFamily: '"Michroma", sans-serif',
-              boxShadow: `0 0 5px rgba(0,0,0,0.3)`,
+              boxShadow: 0 0 5px rgba(0,0,0,0.3),
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
@@ -327,7 +327,7 @@ function App() {
               borderRadius: '5px',
               cursor: 'pointer',
               fontFamily: '"Michroma", sans-serif',
-              boxShadow: `0 0 5px rgba(0,0,0,0.3)`,
+              boxShadow: 0 0 5px rgba(0,0,0,0.3),
               display: 'flex',
               alignItems: 'center',
               gap: '8px',

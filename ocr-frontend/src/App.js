@@ -347,7 +347,7 @@ function App() {
 
 
       <footer style={{ marginTop: '50px', color: '#9CA3AF', fontSize: '11px', fontFamily: '"Michroma", sans-serif', textAlign: 'center' }}>
-        © 2025 DocuEase | Developed by Sahil Shukre & Mayank Gomase
+        © 2025 DocuEase | Developed by Sahil Shukre
       </footer>
     </div>
   );

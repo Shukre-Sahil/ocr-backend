@@ -63,4 +63,8 @@ DocuEase is a web-based Optical Character Recognition (OCR) platform that extrac
 
 Connect on GitHub: [Shukre-Sahil](https://github.com/Shukre-Sahil)
 
+**Mayank Gomase**
+
+Connect on GitHub: [Mayankg-13](https://github.com/Mayankg-13)
+
 ---
